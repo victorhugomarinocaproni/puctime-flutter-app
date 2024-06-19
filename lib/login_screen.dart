@@ -28,15 +28,15 @@ class _LoginScreenState extends State<LoginScreen> {
       DatabaseReference userRef =
       _database.ref().child('users/${userCredential.user!.uid}');
       // Verifica se o usuário já existe no Realtime Database
-      userRef.once().then((DatabaseEvent event) {
-        if (event.snapshot.value == null) {
-          // Se não existir, cria o usuário no Realtime Database
-          userRef.set({
-            'email': userCredential.user!.email,
-            'uid': userCredential.user!.uid,
-          });
-        }
-      });
+      // userRef.once().then((DatabaseEvent event) {
+      //   if (event.snapshot.value == null) {
+      //     // Se não existir, cria o usuário no Realtime Database
+      //     userRef.set({
+      //       'email': userCredential.user!.email,
+      //       'uid': userCredential.user!.uid,
+      //     });
+      //   }
+      // });
 
       final db = FirebaseFirestore.instance; // Instância do Firestore
       List<Map<String, dynamic>> userHashes = []; // Lista para armazenar hashes dos usuários
